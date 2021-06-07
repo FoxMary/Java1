@@ -12,25 +12,19 @@ public class Main {
 
         try {
             massive(mass1);
-        } catch (MyArraySizeException e) {
-            e.printStackTrace();
-        } catch (MyArrayDataException e) {
+        } catch (MyArraySizeException | MyArrayDataException e) {
             e.printStackTrace();
         }
 
         try {
             massive(mass2);
-        } catch (MyArraySizeException e) {
-            e.printStackTrace();
-        } catch (MyArrayDataException e) {
+        } catch (MyArraySizeException | MyArrayDataException e) {
             e.printStackTrace();
         }
 
         try {
             massive(mass3);
-        } catch (MyArraySizeException e) {
-            e.printStackTrace();
-        } catch (MyArrayDataException e) {
+        } catch (MyArraySizeException | MyArrayDataException e) {
             e.printStackTrace();
         }
 
