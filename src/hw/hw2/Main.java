@@ -1,7 +1,5 @@
 package hw.hw2;
 
-import lessons.l2.FactorialException;
-
 public class Main {
     public static void main(String[] args) {
         Week.MONDAY.goWork(Week.MONDAY);
