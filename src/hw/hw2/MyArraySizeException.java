@@ -1,7 +1,7 @@
 package hw.hw2;
 
 public class MyArraySizeException extends Exception {
-    public MyArraySizeException(String msg) {
-        super(msg);
+    public MyArraySizeException() {
+        super("Неверный размер массива");
     }
 }
