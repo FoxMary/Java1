@@ -6,25 +6,24 @@ public class Main {
 //        w.goWork(Week.FRIDAY);
         Week.MONDAY.goWork(Week.SUNDAY);
 
-        String[][] mass1 = {{"3", "4", "4", "5"},  {"3", "4", "4", "7"},   {"3", "4", "4", "7"},  {"4", "4", "7"}};
-        String[][] mass2 = {{"1", "2", "3", "4"},  {"5", "6", "b", "8"}, {"9", "0", "1", "2"},  {"3", "4", "5", "6"}};
-        String[][] mass3 = {{"1", "2", "36", "4"},  {"5", "6", "7", "8"}, {"9", "0", "1", "2"},  {"3", "4", "5", "6"}};
+    try {
+    String[][] mass1 = {{"3", "4", "4", "5"},  {"3", "4", "4", "7"},   {"3", "4", "4", "7"},  {"4", "4", "7"}};
+        System.out.println(massive(mass1));
+    } catch (MyArrayException e) {
+        e.printStackTrace();
+    }
 
         try {
-            massive(mass1);
-        } catch (MyArraySizeException | MyArrayDataException e) {
+            String[][] mass2 = {{"1", "2", "3", "4"},  {"5", "6", "b", "8"}, {"9", "0", "1", "2"},  {"3", "4", "5", "6"}};
+            System.out.println(massive(mass2));
+        } catch (MyArrayException e) {
             e.printStackTrace();
         }
 
         try {
-            massive(mass2);
-        } catch (MyArraySizeException | MyArrayDataException e) {
-            e.printStackTrace();
-        }
-
-        try {
-            massive(mass3);
-        } catch (MyArraySizeException | MyArrayDataException e) {
+            String[][] mass3 = {{"1", "2", "36", "4"},  {"5", "6", "7", "8"}, {"9", "0", "1", "2"},  {"3", "4", "5", "6"}};
+            System.out.println(massive(mass3));
+        } catch (MyArrayException e) {
             e.printStackTrace();
         }
 
@@ -32,7 +31,7 @@ public class Main {
 
 
 
-    public static void massive (String[][] mass) throws MyArraySizeException, MyArrayDataException {
+    public static int massive (String[][] mass) {
         int sum = 0;
         int massLength = 4;
 
@@ -45,12 +44,11 @@ public class Main {
             for (int j = 0; j < massLength; j++) {
                 try {
                     sum += Integer.parseInt(mass[i][j]);
-                } catch (Exception e) {
+                } catch (NumberFormatException e) {
                     throw new MyArrayDataException(i, j);
                 }
             }
         }
-
-        System.out.println(sum);
+        return sum;
     }
 }

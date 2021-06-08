@@ -1,6 +1,6 @@
 package hw.hw2;
 
-public class MyArrayDataException extends Exception {
+public class MyArrayDataException extends MyArrayException {
     int row, column;
 
     public MyArrayDataException(int row, int column) {
