@@ -14,14 +14,14 @@ public enum Week {
         return hours;
     }
 
-    public void goWork(Week week) {
-        for (int i = week.ordinal(); i < 6; i++) {
-            hoursLeft += week.getHours();
+    public void goWork() {
+        for (int i = ordinal(); i < 6; i++) {
+            hoursLeft += getHours();
         }
         if (hoursLeft == 0) {
             System.out.println("Рабочая неделя окончена");
         } else {
-            if (week.getHours() == 0) {
+            if (getHours() == 0) {
                 System.out.println("Сегодня выходной. \nНа этой неделе работать осталось: " + hoursLeft + "ч.");
             } else {
                 System.out.println("На этой неделе работать осталось: " + hoursLeft + "ч.");

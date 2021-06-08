@@ -2,9 +2,7 @@ package hw.hw2;
 
 public class Main {
     public static void main(String[] args) {
-//        Week w = Week.MONDAY;
-//        w.goWork(Week.FRIDAY);
-        Week.MONDAY.goWork(Week.SUNDAY);
+        Week.MONDAY.goWork();
 
     try {
     String[][] mass1 = {{"3", "4", "4", "5"},  {"3", "4", "4", "7"},   {"3", "4", "4", "7"},  {"4", "4", "7"}};
