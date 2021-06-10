@@ -3,14 +3,14 @@ package lessons.l3Collections;
 import java.util.*;
 
 public class Main {
-    public static class Box {
-        String  color;
-        int size;
-
-        public Box(String  color, int size) {
-            this.color = color;
-            this.size = size;
-        }
+//    public static class Box {
+//        String  color;
+//        int size;
+//
+//        public Box(String  color, int size) {
+//            this.color = color;
+//            this.size = size;
+//        }
 
 //        @Override
 //        public int hashCode() {         //стандартный метод из класса Object
@@ -25,10 +25,66 @@ public class Main {
 //            if (this.size == another.size && this.color.equals(another.color)) return true;
 //            return false;
 //        }
-    }
+//    }
 
     public static void main(String[] args) {
-        List<String> list = new ArrayList<>();
+
+        Box[] boxes = {new Box(5), new Box(2), new Box(12)};
+        Arrays.sort(boxes);
+        System.out.println(Arrays.toString(boxes));;
+
+
+//        String[] arr = {"AA", "B", "AAA", "BB", "CCCC", "C"};
+//        System.out.println(Arrays.toString(arr));
+//        Arrays.sort(arr, new Comparator<String>() {     //анонимный внутренний класс, для смены типа сортировки
+//            @Override
+//            public int compare(String o1, String o2) {
+//                return o1.length() - o2.length();
+
+//                if (o1.length() > o2.length()) {          //аналогично
+//                    return 1;
+//                }
+//                if (o1.length() < o2.length()) {
+//                    return -1;
+//                }
+//                return 0;
+//            }
+//        });
+//
+//        System.out.println(Arrays.toString(arr));
+//        Arrays.sort(arr);           //сортировка массива
+//        System.out.println(Arrays.toString(arr));
+//        Collections.sort();         //сортировка для листа
+
+
+//        List<String> data = new ArrayList<>(Arrays.asList("A", "A", "B", "B", "A", "A"));
+//        ListIterator li;        //работает только с листами
+
+
+//        Iterator<String> iter = data.iterator();
+
+//        data.removeIf(o -> o.equals("A"));      //укороченая запись
+
+//        while (iter.hasNext()) {        //обход коллекции
+//            String o = iter.next();
+//            if (o.equals("A")) {
+//                iter.remove();
+//            }
+//        }
+//
+//        System.out.println(data);
+
+//        for (String o : data) {         //нельзя менять размер, обходя
+//            if (o.equals("A")) {
+//                data.remove(o);
+//            }
+//        }
+
+//        for (int i = 0; i < data.size(); i++) {       //смещение индекса
+//            if (data.get(i).equals("A")) {
+//                data.remove(i);
+//            }
+//        }
 
 
 //        HashSet<String> hs = new HashSet<>();       //множество уникальных элементов в любом порядке

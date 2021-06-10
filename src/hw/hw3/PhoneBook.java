@@ -4,18 +4,21 @@ import java.util.HashMap;
 import java.util.HashSet;
 
 public class PhoneBook {
-    HashMap<String, HashSet<Integer>> book = new HashMap<>();
+    HashMap<String, HashSet<String>> book = new HashMap<>();
 
-    public void add(String lastName, int number) {
-        HashSet<Integer> numbers = new HashSet<>();
+    public void add(String lastName, String number) {
+        HashSet<String> phones = book.getOrDefault(lastName, new HashSet<>());
+        phones.add(number);
+        book.put(lastName, phones);
 
-        if (book.containsKey(lastName)) {
-            book.get(lastName).add(number);
-        } else {
-            numbers.add(number);
-            book.put(lastName, numbers);
-
-        }
+//        HashSet<String> numbers = new HashSet<>();      //аналогично
+//
+//        if (book.containsKey(lastName)) {
+//            book.get(lastName).add(number);
+//        } else {
+//            numbers.add(number);
+//            book.put(lastName, numbers);
+//        }
     }
 
     public void info() {
