@@ -48,9 +48,11 @@ public class Main {
         final int h = size / 2;
         float[] arr = new float[size];
 
-        for (float f : arr) f = 1;
+        for (float f : arr) f = 1.0f;
         long a =System.currentTimeMillis();
-        for(float f : arr) f = (float)(f * Math.sin(0.2f + f / 5) * Math.cos(0.2f + f / 5) * Math.cos(0.4f + f / 2));
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = (float)(arr[i] * Math.sin(0.2f + i / 5) * Math.cos(0.2f + i / 5) * Math.cos(0.4f + i / 2));
+        }
         System.out.println("Вычисление целого массива: " + (System.currentTimeMillis() - a) + "мс");
 
     }
@@ -58,7 +60,7 @@ public class Main {
     public static void method2() {
         final int size = 10000000;
         float[] arr = new float[size];
-        for (float f : arr) f = 1;
+        for (float f : arr) f = 1.0f;
         final int h = size / 2;
         float[] a1 = new float[h];
         float[] a2 = new float[h];
@@ -68,19 +70,19 @@ public class Main {
         System.arraycopy(arr, h, a2, 0, h);
 
         Thread t1 = new Thread(() -> {
-            for(float f : a1) f = (float)(f * Math.sin(0.2f + f / 5) * Math.cos(0.2f + f / 5) * Math.cos(0.4f + f / 2));
+            for (int i = 0; i < a1.length; i++) {
+                a1[i] = (float)(a1[i] * Math.sin(0.2f + i / 5) * Math.cos(0.2f + i / 5) * Math.cos(0.4f + i / 2));
+            }
         });
         Thread t2 = new Thread(() -> {
-            for(float f : a2) f = (float)(f * Math.sin(0.2f + f / 5) * Math.cos(0.2f + f / 5) * Math.cos(0.4f + f / 2));
+            for (int i = 0; i < a2.length; i++) {
+                a2[i] = (float)((a2[i] + h) * Math.sin(0.2f + (i + h) / 5) * Math.cos(0.2f + (i + h) / 5) * Math.cos(0.4f + (i + h) / 2));
+            }
         });
         t1.start();
         t2.start();
         try {
             t1.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        try {
             t2.join();
         } catch (InterruptedException e) {
             e.printStackTrace();
